@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון קצבת נכות</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-box">
+            <h1>מחשבון קצבת נכות</h1>
+            
+            <form id="pensionForm">
+                <div class="input-group">
+                    <label for="dailyCompensation">תגמול יומי (₪)</label>
+                    <input type="number" id="dailyCompensation" min="0" step="0.01" required>
+                </div>
+                
+                <div class="input-group-date">
+                    <label for="injuryDate">תאריך פגיעה</label>
+                    <input lang="he" type="date" id="injuryDate" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="pensionPercentage">סוג חישוב</label>
+                    <select id="pensionPercentage" required>
+                        <option value="">בחר סוג חישוב</option>
+                        <option value="standard">התפלגות רגילה (50%, 75%, 100%)</option>
+                        <option value="custom">אחוזים מותאמים אישית</option>
+                    </select>
+                </div>
+                
+                <div class="input-group" id="customPercentageGroup" style="display: none;">
+                    <label for="customPercentage">אחוזים מותאמים:</label>
+                    <input type="text" id="customPercentage" placeholder="לדוגמה: 25,60,85">
+                    <small>הזן אחוזים מופסקים בפסיקים (לדוגמה: 25,60,85)</small>
+                </div>
+                
+                <button type="submit" class="calculate-btn">חשב קצבה</button>
+            </form>
+            
+            <div id="results" class="results-section" style="display: none;">
+                <h2>תוצאות החישוב</h2>
+                <div id="calculationDetails"></div>
+                <div id="finalResult" class="final-result"></div>
+            </div>
+            
+            <div id="error" class="error-message" style="display: none;"></div>
+        </div>
+    </div>
+    
+    <script src="calculator.js"></script>
+</body>
+</html>
